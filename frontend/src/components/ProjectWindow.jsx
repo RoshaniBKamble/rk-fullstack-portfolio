@@ -81,7 +81,7 @@ const ProjectWindow = ({ project, onClose }) => {
                 </div>
 
                 {/* body */}
-                <div className="overflow-y-auto px-6 sm:px-8 py-7">
+                <div data-lenis-prevent className="overflow-y-auto overscroll-contain px-6 sm:px-8 py-7" style={{ touchAction: "pan-y" }}>
                     <div className="flex flex-wrap items-center gap-3 mb-2">
                         <span className="font-mono text-[10px] tracking-widest text-viol">{project.category}</span>
                         <span className={`sm:hidden font-mono text-[10px] tracking-widest border px-2 py-0.5 ${status.cls}`}>{status.label}</span>

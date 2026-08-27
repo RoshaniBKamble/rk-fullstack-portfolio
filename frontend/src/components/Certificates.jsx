@@ -43,7 +43,9 @@ const CertModal = ({ cert, onClose }) => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={reduced ? undefined : { opacity: 0, scale: 0.97, y: 12 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="relative w-full max-w-lg border border-line bg-surface inner-glow"
+                className="relative w-full max-w-lg border border-line bg-surface inner-glow max-h-[85vh] overflow-y-auto overscroll-contain"
+                data-lenis-prevent
+                style={{ touchAction: "pan-y" }}
             >
                 <div className="flex items-center justify-between border-b border-line px-5 py-3 bg-elev/60">
                     <span className="font-mono text-xs text-ink">VAULT://{cert.id.toUpperCase()}</span>
