@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Github, Linkedin, Mail, FileText, Trash2, X } from "lucide-react";
-import { toast } from "sonner";
 import Section from "@/components/Section";
 import { socialLinks } from "@/data/portfolio";
 import { playOpen, playClose, playTick } from "@/audio/soundEngine";
@@ -77,13 +76,6 @@ const channels = [
 const Connect = () => {
     const [showRejected, setShowRejected] = useState(false);
 
-    const resumeClick = () => {
-        playTick();
-        toast.info("Resume PDF will be attached here once published.", {
-            description: "The resume module is ready — the document link is being finalized.",
-        });
-    };
-
     return (
         <>
             <Section id="contact" index="08" label="CONNECT" title="Open a channel">
@@ -108,18 +100,21 @@ const Connect = () => {
                             </div>
                         </a>
                     ))}
-                    <button
+                    <a
                         data-testid="connect-resume"
-                        onClick={resumeClick}
+                        href={socialLinks.resume}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={playTick}
                         className="group text-left border border-line bg-surface inner-glow p-6 hover:border-cy/60 transition-colors duration-300 flex flex-col justify-between min-h-[150px]"
-                        aria-label="View resume"
+                        aria-label="View resume PDF in a new tab"
                     >
                         <FileText size={20} className="text-dim group-hover:text-cy transition-colors duration-200" aria-hidden="true" />
                         <div>
                             <p className="font-mono text-[10px] tracking-widest text-dim mb-1">RESUME</p>
-                            <p className="text-sm text-ink group-hover:text-cy transition-colors duration-200">PDF — linking soon</p>
+                            <p className="text-sm text-ink group-hover:text-cy transition-colors duration-200">View PDF ↗</p>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </Section>
 

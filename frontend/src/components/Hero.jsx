@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, FileText, Github, Linkedin, Mail } from "lucide-react";
-import { toast } from "sonner";
 import HeroScene from "@/components/HeroScene";
 import { profile, socialLinks } from "@/data/portfolio";
 import { scrollToSection } from "@/utils/scroll";
@@ -27,13 +26,6 @@ const Hero = () => {
     const reduced = useReducedMotion();
     const mobile = useIsMobile();
     const staticEnv = reduced || mobile;
-
-    const resumeClick = () => {
-        playTick();
-        toast.info("Resume PDF will be attached here once published.", {
-            description: "The resume module is ready — the document link is being finalized.",
-        });
-    };
 
     return (
         <section id="home" className="relative min-h-screen flex items-center overflow-hidden" data-testid="hero-section">
@@ -107,14 +99,17 @@ const Hero = () => {
                         EXPLORE WORK
                         <ArrowDown size={14} className="group-hover:translate-y-0.5 transition-transform duration-200" />
                     </button>
-                    <button
+                    <a
                         data-testid="hero-view-resume-btn"
-                        onClick={resumeClick}
+                        href={socialLinks.resume}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={playTick}
                         className="inline-flex items-center gap-3 border border-line text-ink font-mono text-xs tracking-widest px-7 py-3.5 hover:border-cy/60 hover:text-cy transition-colors duration-200"
                     >
                         <FileText size={14} />
                         VIEW RESUME
-                    </button>
+                    </a>
                     <div className="flex items-center gap-1 ml-1">
                         <a data-testid="hero-github-link" href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="p-3 text-dim hover:text-cy transition-colors duration-200">
                             <Github size={18} />

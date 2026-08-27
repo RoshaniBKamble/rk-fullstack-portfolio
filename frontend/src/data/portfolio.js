@@ -12,7 +12,7 @@ export const socialLinks = {
     email: "roshanikamble2002@gmail.com",
     github: "https://github.com/RoshaniBKamble",
     linkedin: "https://www.linkedin.com/in/roshani-kamble-3a8b7b259",
-    resume: null, // PDF to be connected later — architecture ready
+    resume: "/roshani-kamble-resume.pdf",
 };
 
 export const navSections = [
