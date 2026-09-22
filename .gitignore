@@ -87,3 +87,7 @@ chainlit.md
 # Build caches
 .cache/
 frontend/node_modules/.cache/default-development/0.pack
+*.env
+credentials.json
+*.key
+.credentials
